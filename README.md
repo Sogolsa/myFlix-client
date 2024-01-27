@@ -36,6 +36,8 @@ Installations:
 1. initialized npm with npm init
 2. installed the parcel globally
 3. installed the react and react-dom dependencies
+   installed the prop-type dependency:
+   It allows you to specify the types that the components should expect for its props. This helps in catching bugs related to incorrect prop types early in development.
 
 Instruct parcel to build the project
 parcel src/index.html for parcel to begin crawling through project, starting and index.html.

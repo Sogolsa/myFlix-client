@@ -1,36 +1,45 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
-    const [movies, setMovies] = useState([
-       {
-        id: 1,
-        Title: "The Matrix",
-        Description: "A mind-bending film, exploring a dystopian future where reality is simulated and controlled by intelligent machines.",
-        Genre: "Sci-Fi",
-        Image: "https://www.themoviedb.org/t/p/w440_and_h660_face/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
-        Director: "Lana Wachowski"
-       },
-       {
-        id: 2,
-        Title: "Inception",
-        Description: "A min-bending thriller, diving into the world of dreams and subconscious manipulation to plant ideas into targets' minds.",
-        Genre: "Sci-Fi",
-        Image: "https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg",
-        Director: "Christopher Nolan"
-       },
-       {
-        id: 3,
-        Title: "The Godfather",
-        Description: "This crime epic delves into the Italian-American mafia and the powerful Corleone family's struggles to maintain control.",
-        Genre: "Crime",
-        Image: "https://www.themoviedb.org/t/p/w440_and_h660_face/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
-        Director: "Francis Ford Coppola"
-       }
-    ]);
+    const [movies, setMovies] = useState([]);
 
     const [selectedMovie, setSelectedMovie] = useState(null);
+
+    // useEffect to fetch movies when the component mounts
+    // fetch is a promise
+    useEffect(() => {
+         fetch("https://myfilx-movies-9cb7e129c91a.herokuapp.com/movies")
+        .then((response) => response.json())
+        .then((data) => {
+            // Populating movies state using setMovies
+            console.log('Data from API:', data);
+            const moviesFromApi = data.map((movie) => {
+                return {
+                    _id: movie._id,
+                    title: movie.Title,
+                    image: movie.ImagePath,
+                    description: movie.Description,
+                    director: {
+                        Name: movie.Director.Name,
+                        Bio: movie.Director.Bio,
+                        Birth: movie.Director.Birth
+                    },
+                    genre: {
+                        Name: movie.Genre.Name,
+                        Description: movie.Genre.Description
+                    }
+         }});
+       
+            setMovies(moviesFromApi);
+            console.log('movies: ', data);
+        })
+        .catch((error) => {
+            console.error('Error fetching movies:', error);
+          });
+    }, []);
+
     if(selectedMovie) {
         return (
             <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
@@ -39,13 +48,23 @@ export const MainView = () => {
     if (movies.length === 0) {
         return <div>The list is empty.</div>
     }
+    console.log('Rendering Movie Cards:', movies);
+    console.log('movies array:', movies);
     return (
         <div>
-            {movies.map((movie) => (
-                <MovieCard key = {movie.id} movie={movie} onMovieClick={(newSelectedMovie) =>{
-                    setSelectedMovie(newSelectedMovie);
-                }} />
-            ))}
+           {movies.map((movie) => {
+  console.log('Movie Title:', movie.title);
+  return (
+    <MovieCard
+      key={movie._id}
+      movie={movie}
+      onMovieClick={(newSelectedMovie) => {
+        setSelectedMovie(newSelectedMovie);
+      }}
+    />
+  );
+})}
+
         </div>
     );
 };
