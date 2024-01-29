@@ -16,7 +16,7 @@ export const SignupView = () => {
       Birthday: birthday,
     };
 
-    fetch('https://myfilx-movies-9cb7e129c91a.herokuapp.com/', {
+    fetch('https://myfilx-movies-9cb7e129c91a.herokuapp.com/users', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
@@ -50,7 +50,6 @@ export const SignupView = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          minLength='8'
         />
       </label>
       <label>
