@@ -27396,9 +27396,8 @@ const MainView = ()=>{
             }, undefined)
         ]
     }, void 0, true);
-    if (selectedMovie) /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+    if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            "return (",
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: ()=>{
                     setUser(null);
@@ -27409,7 +27408,7 @@ const MainView = ()=>{
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
                 lineNumber: 83,
-                columnNumber: 7
+                columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
                 movie: selectedMovie,
@@ -27417,9 +27416,8 @@ const MainView = ()=>{
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
                 lineNumber: 92,
-                columnNumber: 7
-            }, undefined),
-            ")"
+                columnNumber: 9
+            }, undefined)
         ]
     }, void 0, true);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -27507,7 +27505,7 @@ var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 const MovieCard = ({ movie, onMovieClick })=>{
     console.log("MovieCard props:", movie);
-    if (!movie || !movie.title) // Handle the case when movie or movie.Title is undefined
+    if (!movie || !movie.title) // Handle the case when movie or movie.title is undefined
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "Loading..."
     }, void 0, false, {
@@ -27523,7 +27521,7 @@ const MovieCard = ({ movie, onMovieClick })=>{
     }, void 0, false, {
         fileName: "src/components/movie-card/movie-card.jsx",
         lineNumber: 10,
-        columnNumber: 9
+        columnNumber: 5
     }, undefined);
 };
 _c = MovieCard;
@@ -28358,12 +28356,12 @@ const MovieView = ({ movie, onBackClick })=>{
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
                     lineNumber: 8,
-                    columnNumber: 17
+                    columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/movie-view/movie-view.jsx",
                 lineNumber: 7,
-                columnNumber: 13
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
@@ -28372,20 +28370,20 @@ const MovieView = ({ movie, onBackClick })=>{
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 11,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                         children: movie.title
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 12,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-view/movie-view.jsx",
                 lineNumber: 10,
-                columnNumber: 13
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
@@ -28394,20 +28392,20 @@ const MovieView = ({ movie, onBackClick })=>{
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 15,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                         children: movie.director.Name
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 16,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-view/movie-view.jsx",
                 lineNumber: 14,
-                columnNumber: 13
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
@@ -28416,20 +28414,20 @@ const MovieView = ({ movie, onBackClick })=>{
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 19,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                         children: movie.description
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 20,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-view/movie-view.jsx",
                 lineNumber: 18,
-                columnNumber: 13
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
@@ -28438,20 +28436,20 @@ const MovieView = ({ movie, onBackClick })=>{
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 23,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                         children: movie.genre.Name
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 24,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-view/movie-view.jsx",
                 lineNumber: 22,
-                columnNumber: 13
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: onBackClick,
@@ -28459,38 +28457,16 @@ const MovieView = ({ movie, onBackClick })=>{
             }, void 0, false, {
                 fileName: "src/components/movie-view/movie-view.jsx",
                 lineNumber: 26,
-                columnNumber: 13
+                columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/movie-view/movie-view.jsx",
         lineNumber: 6,
-        columnNumber: 9
+        columnNumber: 5
     }, undefined);
 };
 _c = MovieView;
-// MovieView.propTypes = {
-//     movies: PropTypes.array.isRequired,
-//     onMovieClick: PropTypes.func.isRequired
-// };
-MovieView.propTypes = {
-    movie: (0, _propTypesDefault.default).shape({
-        _id: (0, _propTypesDefault.default).string.isRequired,
-        title: (0, _propTypesDefault.default).string.isRequired,
-        description: (0, _propTypesDefault.default).string,
-        imagePath: (0, _propTypesDefault.default).string,
-        genre: (0, _propTypesDefault.default).shape({
-            name: (0, _propTypesDefault.default).string.isRequired,
-            description: (0, _propTypesDefault.default).string
-        }),
-        director: (0, _propTypesDefault.default).shape({
-            name: (0, _propTypesDefault.default).string.isRequired,
-            bio: (0, _propTypesDefault.default).string,
-            birth: (0, _propTypesDefault.default).string
-        })
-    }).isRequired,
-    onMovieClick: (0, _propTypesDefault.default).func.isRequired
-};
 var _c;
 $RefreshReg$(_c, "MovieView");
 
@@ -28521,29 +28497,30 @@ const LoginView = ({ onLoggedIn })=>{
     const handleSubmit = (event)=>{
         //Preventing the default which is reloading the entire page
         event.preventDefault();
-    };
-    const data = {
-        access: name,
-        secret: password
-    };
-    fetch("https://myfilx-movies-9cb7e129c91a.herokuapp.com/login", {
-        method: "POST",
-        /* Informing the server that the body of the request is formatted as JSON
+        const data = {
+            Name: name,
+            Password: password
+        };
+        fetch("https://myfilx-movies-9cb7e129c91a.herokuapp.com/login", {
+            method: "POST",
+            /* Informing the server that the body of the request is formatted as JSON
     helping the server understand how to interpret and process the incoming data.*/ headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    })/*transform response content into json object,so the code can use to
-  extract JWT sent by API */ .then((response)=>response.json()).then((data)=>{
-        console.log("Login response: ", data);
-        if (data.user) {
-            localStorage.setItem("user", JSON.stringify(data.user));
-            localStorage.setItem("token", data.token);
-            onLoggedIn(data.user, data.token);
-        } else alert("No such user");
-    }).catch((e)=>{
-        alert("Something went wrong");
-    });
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })/*transform response content into json object,so the code can use to
+    extract JWT sent by API */ .then((response)=>response.json()).then((data)=>{
+            console.log("Login response: ", data);
+            if (data.user) {
+                localStorage.setItem("user", JSON.stringify(data.user));
+                localStorage.setItem("token", data.token);
+                onLoggedIn(data.user, data.token);
+            } else alert("No such user");
+        }).catch((error)=>{
+            console.error("Login error:", error);
+            alert("Something went wrong");
+        });
+    };
     return(// Adding a callback that tells API to validate name and password
     /* Binding or setting up a state variable in react component
     and connecting it with state variable to the HTML form element state
@@ -28617,7 +28594,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"5CGWM","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dIGja","react":"21dqq"}],"4OGiN":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"5CGWM","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dIGja"}],"4OGiN":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$73d1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -28645,7 +28622,7 @@ const SignupView = ()=>{
             Email: email,
             Birthday: birthday
         };
-        fetch("https://myfilx-movies-9cb7e129c91a.herokuapp.com/", {
+        fetch("https://myfilx-movies-9cb7e129c91a.herokuapp.com/users", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -28688,8 +28665,7 @@ const SignupView = ()=>{
                         type: "password",
                         value: password,
                         onChange: (e)=>setPassword(e.target.value),
-                        required: true,
-                        minLength: "8"
+                        required: true
                     }, void 0, false, {
                         fileName: "src/components/signup-view/signup-view.jsx",
                         lineNumber: 48,
@@ -28711,13 +28687,13 @@ const SignupView = ()=>{
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/signup-view/signup-view.jsx",
-                        lineNumber: 58,
+                        lineNumber: 57,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 56,
+                lineNumber: 55,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -28730,13 +28706,13 @@ const SignupView = ()=>{
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/signup-view/signup-view.jsx",
-                        lineNumber: 67,
+                        lineNumber: 66,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 65,
+                lineNumber: 64,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -28744,7 +28720,7 @@ const SignupView = ()=>{
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 74,
+                lineNumber: 73,
                 columnNumber: 7
             }, undefined)
         ]
