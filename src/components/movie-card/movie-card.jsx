@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Button, Card } from 'react-bootstrap';
 
 export const MovieCard = ({ movie, onMovieClick }) => {
   console.log('MovieCard props:', movie);
@@ -6,14 +7,18 @@ export const MovieCard = ({ movie, onMovieClick }) => {
     // Handle the case when movie or movie.title is undefined
     return <div>Loading...</div>;
   }
+  // For every column to look the same using sizing utility class h-100(height: 100%)
   return (
-    <div
-      onClick={() => {
-        onMovieClick(movie);
-      }}
-    >
-      {movie.title}
-    </div>
+    <Card className='h-100'>
+      <Card.Img variant='top' src={movie.image} />
+      <Card.Body>
+        <Card.Title>{movie.title}</Card.Title>
+        <Card.Text>{movie.description}</Card.Text>
+        <Button onClick={() => onMovieClick(movie)} variant='link'>
+          Open
+        </Button>
+      </Card.Body>
+    </Card>
   );
 };
 
