@@ -1,4 +1,5 @@
 import react, { useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
 
 // Passing the onLoggedIn prop to LoginView and calling the prop when login request succeeds
 export const LoginView = ({ onLoggedIn }) => {
@@ -47,10 +48,10 @@ export const LoginView = ({ onLoggedIn }) => {
     and connecting it with state variable to the HTML form element state
     using value an onChange, this way, component state will become 
     primary place for data to be stored and updated */
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name:{' '}
-        <input
+    <Form onSubmit={handleSubmit}>
+      <Form.Group controlId='formName'>
+        <Form.Label>Name:</Form.Label>
+        <Form.Control
           type='text'
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -58,18 +59,21 @@ export const LoginView = ({ onLoggedIn }) => {
           checks users info and tells them if they've inputted error
           or if the fields are empty before request reaches server */
           required
+          minLength='3'
         />
-      </label>
-      <label>
-        Password:
-        <input
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Password:</Form.Label>
+        <Form.Control
           type='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required //form validation
+          required
         />
-      </label>
-      <button type='submit'>Submit</button>
-    </form>
+      </Form.Group>
+      <Button variant='primary' type='submit'>
+        Submit
+      </Button>
+    </Form>
   );
 };
