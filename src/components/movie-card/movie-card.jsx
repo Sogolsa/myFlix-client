@@ -1,22 +1,27 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-export const MovieCard = ({ movie, onMovieClick }) => {
+export const MovieCard = ({ movie }) => {
   console.log('MovieCard props:', movie);
   if (!movie || !movie.title) {
     // Handle the case when movie or movie.title is undefined
     return <div>Loading...</div>;
   }
   // For every column to look the same using sizing utility class h-100(height: 100%)
+  /*encodeURIComponent isn't always needed, the key property used to populate id,
+  contains non alphanumeric characters. encodeURIComponent replaces those characters
+  with URL friendly characters*/
   return (
     <Card className='h-100'>
       <Card.Img variant='top' src={movie.image} />
       <Card.Body>
         <Card.Title>{movie.title}</Card.Title>
         <Card.Text>{movie.description}</Card.Text>
-        <Button onClick={() => onMovieClick(movie)} variant='link'>
-          Open
-        </Button>
+        <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
+          <Button variant='link'>Open</Button>
+        </Link>
       </Card.Body>
     </Card>
   );
@@ -44,5 +49,4 @@ MovieCard.propTypes = {
       birth: PropTypes.string,
     }),
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired,
 };

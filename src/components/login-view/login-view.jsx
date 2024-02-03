@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
 // Passing the onLoggedIn prop to LoginView and calling the prop when login request succeeds
