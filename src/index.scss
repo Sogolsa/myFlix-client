@@ -3,7 +3,16 @@ $color: steelblue;
 .my-flix {
     color: $color;
 }
-$primary: Green;
-$body-bg: Honeydew;
+.second-row {
+    margin-bottom: 20px; /* Adjust the margin value as needed */
+  }
+.btn-primary {
+  margin-top: 10px;
+}
+
+$primary: teal;
+$body-bg: rgb(221, 240, 240);
 
 @import '~bootstrap/scss/bootstrap.scss';
+
+

@@ -1,33 +1,127 @@
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-export const MovieCard = ({ movie, onMovieClick }) => {
-  console.log('MovieCard props:', movie);
-  if (!movie || !movie.title) {
-    // Handle the case when movie or movie.title is undefined
-    return <div>Loading...</div>;
-  }
-  // For every column to look the same using sizing utility class h-100(height: 100%)
+export const MovieCard = ({ movie, token, user, setUser }) => {
+  const storedUser = JSON.parse(localStorage.getItem('user'));
+  console.log('stored user: ', storedUser);
+  const storedToken = localStorage.getItem('token');
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
+
+  useEffect(() => {
+    if (user?.FavoriteMovies && user.FavoriteMovies.includes(movie._id)) {
+      setIsFavorite(true);
+    } else {
+      setIsFavorite(false);
+    }
+  }, [user, movie, token, setUser]);
+
+  const addFavoriteMovie = () => {
+    if (!storedUser || !storedUser.Name) {
+      console.error('User or user.Name is undefined.');
+    } else {
+      console.log('Name: ', storedUser.Name);
+    }
+    fetch(
+      `https://myfilx-movies-9cb7e129c91a.herokuapp.com/users/${storedUser.Name}/movies/${movie._id}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        method: 'POST',
+      }
+    )
+      .then((response) => {
+        console.log('favorite movie: ', response);
+        if (response.ok) {
+          return response.json();
+        } else {
+          alert('Failed to add favorite movie');
+        }
+      })
+      .then((updatedUserList) => {
+        console.log('Updated User List:', updatedUserList);
+        alert('successfully added to favorites');
+        if (updatedUserList) {
+          localStorage.setItem('user', JSON.stringify(updatedUserList));
+          setUser(updatedUserList);
+          setIsFavorite(true);
+          console.log('FavoriteMovies:', updatedUserList.FavoriteMovies);
+          console.log(
+            'FavoriteMovies length:',
+            updatedUserList.FavoriteMovies.length
+          );
+        }
+      })
+      .catch((error) => {
+        console.log('User list was not updated', error);
+      });
+  };
+
+  const removeFavoriteMovie = () => {
+    fetch(
+      `https://myfilx-movies-9cb7e129c91a.herokuapp.com/users/${storedUser.Name}/movies/${movie._id}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        method: 'DELETE',
+      }
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new ERROR('Failed to remove from favorite movie');
+        }
+      })
+      .then((updatedUserList) => {
+        console.log('Updated User List:', updatedUserList);
+        alert('successfully deleted from favorites');
+        if (updatedUserList && updatedUserList.FavoriteMovies) {
+          localStorage.setItem('user', JSON.stringify(updatedUserList));
+          setUser(updatedUserList);
+          setIsFavorite(false);
+          console.log('User list updated successfully:', updatedUserList);
+        }
+      })
+      .catch((error) => {
+        console.log('User list was not updated', error);
+        alert('Failed to remove favorite movie');
+      });
+  };
+
+  /* column to look the same using sizing utility class h-100(height: 100%)
+  /*encodeURIComponent isn't always needed, the key property used to populate id,
+  contains non alphanumeric characters. encodeURIComponent replaces those characters
+  with URL friendly characters*/
   return (
     <Card className='h-100'>
       <Card.Img variant='top' src={movie.image} />
       <Card.Body>
         <Card.Title>{movie.title}</Card.Title>
         <Card.Text>{movie.description}</Card.Text>
-        <Button onClick={() => onMovieClick(movie)} variant='link'>
-          Open
-        </Button>
+        <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
+          <Button variant='link'>More Info</Button>
+        </Link>
+        <Row>
+          <Col>
+            <Button variant='link' onClick={addFavoriteMovie}>
+              Add Favorite Movie
+            </Button>
+            <Button variant='link' onClick={removeFavoriteMovie}>
+              Remove Favorite Movie
+            </Button>
+          </Col>
+        </Row>
       </Card.Body>
     </Card>
   );
 };
-
-// defining all the props constraints for the MovieCard
-/* The props object must contain a movie object (shape means it's an object)
- The movie prop(object) contains Title, Description, Genre, Director keys with type string.
-  if the onMovieClick function isn't passed as a prop to the MovieCard component, it will immediately
-   display a warning in the console upon running the app.The prop name should be same as the one in
-   MainView */
 MovieCard.propTypes = {
   movie: PropTypes.shape({
     _id: PropTypes.string.isRequired,
@@ -44,5 +138,6 @@ MovieCard.propTypes = {
       birth: PropTypes.string,
     }),
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired,
 };
+
+export default MovieCard;
