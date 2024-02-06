@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 
-import { MovieCard } from '../movie-card/movie-card';
+import MovieCard from '../movie-card/movie-card';
+
+import FavoriteMoviesList from './favorite-movies';
 import UserInfo from './user-info';
 import UpdateInfo from './update-info';
 import DeleteUser from './delete-user';
 
-export const ProfileView = () => {
+export const ProfileView = ({ user, movie, movies }) => {
   const storedUser = JSON.parse(localStorage.getItem('user'));
   console.log('stored user: ', storedUser);
   const storedToken = localStorage.getItem('token');
@@ -15,6 +17,9 @@ export const ProfileView = () => {
   const [birthday, setBirthday] = useState('');
   const [password, setPassword] = useState('');
 
+  let FavoriteMovies = movies.filter((m) =>
+    user.FavoriteMovies.includes(m._id)
+  );
   useEffect(() => {
     if (storedToken) {
       fetch(
@@ -50,7 +55,7 @@ export const ProfileView = () => {
           console.error('Error fetching users:', error);
         });
     }
-  }, [storedToken]);
+  }, []);
 
   // Render the UserInfo component with the retrieved user information
   // Render Update info from UpdateInfo component
@@ -59,6 +64,22 @@ export const ProfileView = () => {
       <Row className='justify-content-md-center align-items-center'>
         <Col md={5}>
           <UserInfo name={name} email={email} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          {/* <FavoriteMoviesList FavoriteMovies={FavoriteMovies} movies={movies} /> */}
+          <div className='favorite-movies'>
+            <h5>Favorite Movies:</h5>
+            {FavoriteMovies.map((movie) => (
+              <MovieCard
+                key={movie._id}
+                movie={movie}
+                token={storedToken}
+                user={user}
+              />
+            ))}
+          </div>
         </Col>
       </Row>
       <Row className='justify-content-md-center align-items-center second-row'>

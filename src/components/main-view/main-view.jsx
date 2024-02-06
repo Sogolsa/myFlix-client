@@ -168,7 +168,12 @@ export const MainView = () => {
                   <>
                     {movies.map((movie) => (
                       <Col className='mb-4' key={movie._id} md={3}>
-                        <MovieCard movie={movie} />
+                        <MovieCard
+                          movie={movie}
+                          user={user}
+                          token={token}
+                          setUser={setUser}
+                        />
                       </Col>
                     ))}
                   </>
