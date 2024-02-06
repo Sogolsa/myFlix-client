@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 
 import MovieCard from '../movie-card/movie-card';
-
 import UserInfo from './user-info';
 import UpdateInfo from './update-info';
 import DeleteUser from './delete-user';
 
-export const ProfileView = ({ user, movie, movies }) => {
+export const ProfileView = ({ user, movie, movies, setUser }) => {
   const storedUser = JSON.parse(localStorage.getItem('user'));
   console.log('stored user: ', storedUser);
   const storedToken = localStorage.getItem('token');
@@ -75,6 +74,7 @@ export const ProfileView = ({ user, movie, movies }) => {
                 movie={movie}
                 token={storedToken}
                 user={user}
+                setUser={setUser}
               />
             ))}
           </div>

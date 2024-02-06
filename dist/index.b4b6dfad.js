@@ -41939,7 +41939,7 @@ var _updateInfoDefault = parcelHelpers.interopDefault(_updateInfo);
 var _deleteUser = require("./delete-user");
 var _deleteUserDefault = parcelHelpers.interopDefault(_deleteUser);
 var _s = $RefreshSig$();
-const ProfileView = ({ user, movie, movies })=>{
+const ProfileView = ({ user, movie, movies, setUser })=>{
     _s();
     const storedUser = JSON.parse(localStorage.getItem("user"));
     console.log("stored user: ", storedUser);
@@ -41986,17 +41986,17 @@ const ProfileView = ({ user, movie, movies })=>{
                         email: email
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 65,
+                        lineNumber: 64,
                         columnNumber: 11
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 64,
+                    lineNumber: 63,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 63,
+                lineNumber: 62,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -42009,27 +42009,28 @@ const ProfileView = ({ user, movie, movies })=>{
                                     children: "Favorite Movies:"
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 71,
+                                    lineNumber: 70,
                                     columnNumber: 13
                                 }, undefined),
                                 FavoriteMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCardDefault.default), {
                                         movie: movie,
                                         token: storedToken,
-                                        user: user
+                                        user: user,
+                                        setUser: setUser
                                     }, movie._id, false, {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 73,
+                                        lineNumber: 72,
                                         columnNumber: 15
                                     }, undefined))
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 70,
+                            lineNumber: 69,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 69,
+                        lineNumber: 68,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
@@ -42060,13 +42061,13 @@ const ProfileView = ({ user, movie, movies })=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 68,
+                lineNumber: 67,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/profile-view.jsx",
-        lineNumber: 62,
+        lineNumber: 61,
         columnNumber: 5
     }, undefined);
 };
