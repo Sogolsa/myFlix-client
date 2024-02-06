@@ -10,12 +10,6 @@ export const MovieCard = ({ movie, token, user, setUser }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
 
-  // const handleOnToggleFavorite= (event) {
-  //   event.preventDefault();
-  //   let favoriteMoviesList = movies.filter((m) =>
-  //   user.FavoriteMovies.includes(m._id)
-  // );
-
   useEffect(() => {
     if (user?.FavoriteMovies && user.FavoriteMovies.includes(movie._id)) {
       setIsFavorite(true);
@@ -45,15 +39,13 @@ export const MovieCard = ({ movie, token, user, setUser }) => {
         if (response.ok) {
           return response.json();
         } else {
-          console.log('failed favorite movie: ', response);
           alert('Failed to add favorite movie');
         }
       })
       .then((updatedUserList) => {
         console.log('Updated User List:', updatedUserList);
-
+        alert('successfully added to favorites');
         if (updatedUserList) {
-          console.log('Updated User List: ', updatedUserList);
           localStorage.setItem('user', JSON.stringify(updatedUserList));
           setUser(updatedUserList);
           setIsFavorite(true);
@@ -66,6 +58,40 @@ export const MovieCard = ({ movie, token, user, setUser }) => {
       })
       .catch((error) => {
         console.log('User list was not updated', error);
+      });
+  };
+
+  const removeFavoriteMovie = () => {
+    fetch(
+      `https://myfilx-movies-9cb7e129c91a.herokuapp.com/users/${storedUser.Name}/movies/${movie._id}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        method: 'DELETE',
+      }
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new ERROR('Failed to remove from favorite movie');
+        }
+      })
+      .then((updatedUserList) => {
+        console.log('Updated User List:', updatedUserList);
+        alert('successfully deleted from favorites');
+        if (updatedUserList && updatedUserList.FavoriteMovies) {
+          localStorage.setItem('user', JSON.stringify(updatedUserList));
+          setUser(updatedUserList);
+          setIsFavorite(false);
+          console.log('User list updated successfully:', updatedUserList);
+        }
+      })
+      .catch((error) => {
+        console.log('User list was not updated', error);
+        alert('Failed to remove favorite movie');
       });
   };
 
@@ -90,6 +116,13 @@ export const MovieCard = ({ movie, token, user, setUser }) => {
               onClick={addFavoriteMovie}
             >
               Add Favorite Movie
+            </Button>
+            <Button
+              className='btn-fav-movie'
+              variant='link'
+              onClick={removeFavoriteMovie}
+            >
+              Remove Favorite Movie
             </Button>
           </Col>
         </Row>

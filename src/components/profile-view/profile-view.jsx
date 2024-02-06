@@ -3,7 +3,6 @@ import { Row, Col, Container } from 'react-bootstrap';
 
 import MovieCard from '../movie-card/movie-card';
 
-import FavoriteMoviesList from './favorite-movies';
 import UserInfo from './user-info';
 import UpdateInfo from './update-info';
 import DeleteUser from './delete-user';
@@ -68,7 +67,6 @@ export const ProfileView = ({ user, movie, movies }) => {
       </Row>
       <Row>
         <Col>
-          {/* <FavoriteMoviesList FavoriteMovies={FavoriteMovies} movies={movies} /> */}
           <div className='favorite-movies'>
             <h5>Favorite Movies:</h5>
             {FavoriteMovies.map((movie) => (
@@ -81,20 +79,17 @@ export const ProfileView = ({ user, movie, movies }) => {
             ))}
           </div>
         </Col>
-      </Row>
-      <Row className='justify-content-md-center align-items-center second-row'>
-        <Col md={5}>
-          <DeleteUser />
-        </Col>
-      </Row>
-      <Row className='justify-content-md-center align-items-center'>
-        <Col md={5}>
+        <Col
+          md={5}
+          className='justify-content-md-center align-items-center second-row'
+        >
           <UpdateInfo
             name={name}
             email={email}
             password={password}
             birthday={birthday}
           />
+          <DeleteUser />
         </Col>
       </Row>
     </Container>
