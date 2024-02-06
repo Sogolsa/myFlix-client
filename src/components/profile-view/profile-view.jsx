@@ -66,7 +66,7 @@ export const ProfileView = ({ user, movie, movies, setUser }) => {
       </Row>
       <Row>
         <Col>
-          <div className='favorite-movies'>
+          <div>
             <h5>Favorite Movies:</h5>
             {FavoriteMovies.map((movie) => (
               <MovieCard

@@ -110,18 +110,10 @@ export const MovieCard = ({ movie, token, user, setUser }) => {
         </Link>
         <Row>
           <Col>
-            <Button
-              className='btn-fav-movie'
-              variant='link'
-              onClick={addFavoriteMovie}
-            >
+            <Button variant='link' onClick={addFavoriteMovie}>
               Add Favorite Movie
             </Button>
-            <Button
-              className='btn-fav-movie'
-              variant='link'
-              onClick={removeFavoriteMovie}
-            >
+            <Button variant='link' onClick={removeFavoriteMovie}>
               Remove Favorite Movie
             </Button>
           </Col>

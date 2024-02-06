@@ -27740,7 +27740,6 @@ const MovieCard = ({ movie, token, user, setUser })=>{
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                                    className: "btn-fav-movie",
                                     variant: "link",
                                     onClick: addFavoriteMovie,
                                     children: "Add Favorite Movie"
@@ -27750,13 +27749,12 @@ const MovieCard = ({ movie, token, user, setUser })=>{
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                                    className: "btn-fav-movie",
                                     variant: "link",
                                     onClick: removeFavoriteMovie,
                                     children: "Remove Favorite Movie"
                                 }, void 0, false, {
                                     fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 120,
+                                    lineNumber: 116,
                                     columnNumber: 13
                                 }, undefined)
                             ]
@@ -42003,7 +42001,6 @@ const ProfileView = ({ user, movie, movies, setUser })=>{
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "favorite-movies",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
                                     children: "Favorite Movies:"
