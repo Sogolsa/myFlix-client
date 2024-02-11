@@ -100,7 +100,7 @@ export const MovieCard = ({ movie, token, user, setUser }) => {
   contains non alphanumeric characters. encodeURIComponent replaces those characters
   with URL friendly characters*/
   return (
-    <Card className='h-100'>
+    <Card className='h-100 image-container'>
       <Card.Img variant='top' src={movie.image} />
       <Card.Body>
         <Card.Title>{movie.title}</Card.Title>
