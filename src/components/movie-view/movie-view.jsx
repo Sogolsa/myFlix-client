@@ -20,19 +20,19 @@ export const MovieView = ({ movies }) => {
         <img className='w-100' src={movie.image} alt='Movie Poster' />
       </div>
       <div>
-        <span>Title: </span>
+        <span style={{ fontWeight: 'bold' }}>Title: </span>
         <span>{movie.title}</span>
       </div>
       <div>
-        <span>Director: </span>
+        <span style={{ fontWeight: 'bold' }}>Director: </span>
         <span>{movie.director.Name}</span>
       </div>
       <div>
-        <span>Description: </span>
+        <span style={{ fontWeight: 'bold' }}>Description: </span>
         <span>{movie.description}</span>
       </div>
       <div>
-        <span>Genre: </span>
+        <span style={{ fontWeight: 'bold' }}>Genre: </span>
         <span>{movie.genre.Name}</span>
       </div>
       <Link to={`/`}>
