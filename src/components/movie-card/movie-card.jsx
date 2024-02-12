@@ -8,7 +8,6 @@ export const MovieCard = ({ movie, token, user, setUser }) => {
   console.log('stored user: ', storedUser);
   const storedToken = localStorage.getItem('token');
   const [isFavorite, setIsFavorite] = useState(false);
-  const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   useEffect(() => {
     if (user?.FavoriteMovies && user.FavoriteMovies.includes(movie._id)) {
@@ -95,12 +94,20 @@ export const MovieCard = ({ movie, token, user, setUser }) => {
       });
   };
 
+  const handleToggle = () => {
+    if (isFavorite) {
+      removeFavoriteMovie();
+    } else {
+      addFavoriteMovie();
+    }
+  };
+
   /* column to look the same using sizing utility class h-100(height: 100%)
   /*encodeURIComponent isn't always needed, the key property used to populate id,
   contains non alphanumeric characters. encodeURIComponent replaces those characters
   with URL friendly characters*/
   return (
-    <Card className='h-100 image-container'>
+    <Card className='h-100'>
       <Card.Img variant='top' src={movie.image} />
       <Card.Body>
         <Card.Title>{movie.title}</Card.Title>
@@ -110,11 +117,8 @@ export const MovieCard = ({ movie, token, user, setUser }) => {
         </Link>
         <Row>
           <Col>
-            <Button variant='link' onClick={addFavoriteMovie}>
-              Add Favorite Movie
-            </Button>
-            <Button variant='link' onClick={removeFavoriteMovie}>
-              Remove Favorite Movie
+            <Button variant='link' onClick={handleToggle}>
+              {isFavorite ? 'Remove Favorite Movie' : 'Add Favorite Movie'}
             </Button>
           </Col>
         </Row>
