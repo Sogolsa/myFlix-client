@@ -13219,7 +13219,12 @@ textarea.form-control-lg {
   background-color: teal;
   border: none;
   border-radius: 4px;
+  margin-top: 5px;
   padding: 4px 12px;
+}
+
+.nav-item:hover {
+  background-color: #ddf0f0;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */
