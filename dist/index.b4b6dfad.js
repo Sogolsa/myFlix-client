@@ -27695,7 +27695,7 @@ const MovieCard = ({ movie, token, user, setUser })=>{
   /*encodeURIComponent isn't always needed, the key property used to populate id,
   contains non alphanumeric characters. encodeURIComponent replaces those characters
   with URL friendly characters*/ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
-        className: "h-100",
+        className: "h-100 image-container",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Img, {
                 variant: "top",
