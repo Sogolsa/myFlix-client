@@ -7,6 +7,7 @@ import { ProfileView } from '../profile-view/profile-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
 import { Row, Col, Button } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import SearchInput from '../search-input/search-input';
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -62,6 +63,24 @@ export const MainView = () => {
       });
   }, [token]); //ensures fetch is called every time token is changed
 
+  // search
+  const [searchedMovies, setSearchedMovies] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleSearch = (searchValue) => {
+    const filteredMovies = movies.filter((movie) => {
+      return (
+        // movie &&
+        movie.genre &&
+        movie.genre.Name &&
+        movie.genre.Name.toLowerCase().includes(searchValue.toLowerCase())
+      );
+    });
+    console.log('movie:', movies, 'searchValue:', searchValue);
+    setSearchedMovies(filteredMovies);
+    console.log('searched movies', filteredMovies);
+  };
+
   /* LoginView component is displayed in MainView when no user is logged in,
   if log in is successful pass a prop with a callback function to update current user */
   /* Using spacing utility class applied margin-bottom on each column mb-x, in which x is 
@@ -81,6 +100,11 @@ export const MainView = () => {
           setToken(null);
           localStorage.clear();
         }}
+      />
+      <SearchInput
+        className='justify-content-md-center mb-10'
+        onSearch={handleSearch}
+        setSearchValue={setSearchValue}
       />
       <Row className='justify-content-md-center'>
         <Routes>
@@ -152,6 +176,44 @@ export const MainView = () => {
                   </Col>
                 )}
               </>
+            }
+          />
+          <Route
+            path='/search'
+            element={
+              /*If the user is not logged in, it redirects to the login page.
+             If the user is logged in and there are movies, it displays movie cards in columns.*/
+              <Row>
+                {!user ? (
+                  <Navigate to='/login' replace />
+                ) : movies.length === 0 ? (
+                  <Col>The list is empty</Col>
+                ) : (
+                  <>
+                    {searchedMovies.length === 0
+                      ? movies.map((movie) => (
+                          <Col className='mb-4' key={movie._id} md={3}>
+                            <MovieCard
+                              movie={movie}
+                              user={user}
+                              token={token}
+                              setUser={setUser}
+                            />
+                          </Col>
+                        ))
+                      : searchedMovies.map((movie) => (
+                          <Col className='mb-4' key={movie._id} md={3}>
+                            <MovieCard
+                              movie={movie}
+                              user={user}
+                              token={token}
+                              setUser={setUser}
+                            />
+                          </Col>
+                        ))}
+                  </>
+                )}
+              </Row>
             }
           />
           <Route
