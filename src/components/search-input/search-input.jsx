@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
+// Creating a component for search input and search button
 function SearchInput({ onSearch }) {
   const navigate = useNavigate();
 
