@@ -63,7 +63,8 @@ export const MainView = () => {
       });
   }, [token]); //ensures fetch is called every time token is changed
 
-  // search
+  // Defining the search function, filtering through movies and returning
+  // the search result
   const [searchedMovies, setSearchedMovies] = useState([]);
   const [searchValue, setSearchValue] = useState('');
 
