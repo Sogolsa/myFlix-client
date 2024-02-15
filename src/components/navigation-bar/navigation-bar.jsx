@@ -1,5 +1,7 @@
+import React, { useState } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
 import './navigation-bar.scss';
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
