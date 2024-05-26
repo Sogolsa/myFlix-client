@@ -45,5 +45,3 @@ parcel src/index.html for parcel to begin crawling through project, starting and
 To look at the project:
 Open the browser and navigate to http://localhost:1234
 
-myFlix App:
-https://movieapp-bysogol.netlify.app/login
