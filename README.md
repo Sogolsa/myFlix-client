@@ -52,6 +52,5 @@ Users are able to create a profile so they can save data about their favorite mo
 
 parcel src/index.html: For parcel to begin crawling through project, starting and index.html.
 
-## Hosted on:
-
-myFlix App: https://movieapp-bysogol.netlify.app/login
+To look at the project:
+Open the browser and navigate to http://localhost:1234
