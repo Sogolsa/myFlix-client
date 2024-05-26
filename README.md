@@ -40,17 +40,17 @@ Users are able to create a profile so they can save data about their favorite mo
 ## Installations:
 
 1. initialized npm with npm init
-2. installed the parcel globally: npm install -g parcel
-3. installed the react and react-dom dependencies: npm install --save react react-dom
+2. installed the parcel globally: `npm install -g parcel`
+3. installed the react and react-dom dependencies: `npm install --save react react-dom`
    installed the prop-type dependency:
    It allows you to specify the types that the components should expect for its props. This helps in catching bugs related to incorrect prop types early in development.
-4. Install bootstrap and react-bootstrap: npm install react-bootstrap bootstrap
-5. Install react-router and react-router-dom: npm install react-router react-router-dom --save
-6. Install parcel as a local developer dependency: npm install --save-dev parcel@2.12.0
+4. Install bootstrap and react-bootstrap: `npm install react-bootstrap bootstrap`
+5. Install react-router and react-router-dom: `npm install react-router react-router-dom --save`
+6. Install parcel as a local developer dependency: `npm install --save-dev parcel@2.12.0`
 
 ### Instruct parcel to build the project
 
-parcel src/index.html: For parcel to begin crawling through project, starting and index.html.
+parcel `src/index.html`: For parcel to begin crawling through project, starting and index.html.
 
 ## Hosted On:
 
