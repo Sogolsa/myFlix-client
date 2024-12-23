@@ -11,13 +11,8 @@
   }
 
   .form-control {
-    // margin-bottom: 15px;
-    background-color: white !important;
-    color: black;
-    width: 100%;
-    padding-right: 2.5rem;
-    height: 40px;
-    background: transparent;
+    margin-bottom: 15px;
+    background-color: white;
   }
 
   .btn-primary {
@@ -25,31 +20,17 @@
     color: white;
     font-weight: 600;
   }
-
-  .input-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .toggle-password-btn {
-    position: absolute; /* Position the button over the input */
-    top: 50%; /* Center vertically */
-    right: 10px; /* Adjust alignment to the right edge */
-    transform: translateY(-50%);
-    border: none !important;
-    background-color: transparent !important; /* Make it blend with the input field */
-    color: #6c757d !important;
-    // justify-content: center;
-    // align-items: center;
-    padding: 5px;
-    cursor: pointer;
-    line-height: 1;
-
-    // z-index: 10;
-    &:hover {
-      color: #0d6efd !important; /* Highlight color on hover */
-    }
-  }
+  // .toggle-password-btn {
+  //   position: absolute; /* Position the button over the input */
+  //   top: 40%; /* Center vertically */
+  //   right: 10px; /* Adjust alignment to the right edge */
+  //   transform: translateY(-50%);
+  //   border: none;
+  //   background-color: transparent; /* Make it blend with the input field */
+  //   color: #6c757d;
+  //   cursor: pointer;
+  //   &:hover {
+  //     color: #0d6efd; /* Highlight color on hover */
+  //   }
+  // }
 }

@@ -72,16 +72,16 @@ export const LoginView = ({ onLoggedIn }) => {
             minLength='3'
           />
         </Form.Group>
-        {/* <Form.Group className='mb-3'>
-            <Form.Label>Password:</Form.Label>
-            <Form.Control
-              type='password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </Form.Group> */}
-        <Form.Group>
+        <Form.Group className='mb-3'>
+          <Form.Label>Password:</Form.Label>
+          <Form.Control
+            type='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </Form.Group>
+        {/* <Form.Group>
           <Form.Label>Password:</Form.Label>
           <div className='input-group'>
             <Form.Control
@@ -97,13 +97,13 @@ export const LoginView = ({ onLoggedIn }) => {
               className='toggle-password-btn'
             >
               {showPassword ? (
-                <i className='bi bi-eye-slash'></i> /* Hide Icon */
+                <i className='bi bi-eye-slash'></i> 
               ) : (
-                <i className='bi bi-eye'></i> /* Show Icon */
+                <i className='bi bi-eye'></i> 
               )}
             </Button>
           </div>
-        </Form.Group>
+        </Form.Group> */}
         <Button variant='primary' type='submit'>
           Submit
         </Button>
