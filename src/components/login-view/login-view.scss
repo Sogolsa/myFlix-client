@@ -21,17 +21,22 @@
     color: white;
     font-weight: 600;
   }
-  .toggle-password-btn {
+  .toggle-password-btn,
+  .outline-secondary {
     position: absolute; /* Position the button over the input */
     top: 40%; /* Center vertically */
     right: 10px; /* Adjust alignment to the right edge */
     transform: translateY(-50%);
     border: none;
     background-color: transparent; /* Make it blend with the input field */
-    color: #6c757d;
+    color: #6c757d !important;
     cursor: pointer;
+    z-index: 10;
     &:hover {
-      color: #0d6efd; /* Highlight color on hover */
+      color: #0d6efd !important; /* Highlight color on hover */
     }
+  }
+  .input-group {
+    position: relative;
   }
 }
