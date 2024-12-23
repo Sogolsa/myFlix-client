@@ -11,12 +11,13 @@
   }
 
   .form-control {
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
     background-color: white !important;
     color: black;
     width: 100%;
     padding-right: 2.5rem;
     height: 40px;
+    background: transparent;
   }
 
   .btn-primary {
@@ -27,12 +28,12 @@
 
   .input-group {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
   .toggle-password-btn {
-    height: 40px;
     position: absolute; /* Position the button over the input */
     top: 50%; /* Center vertically */
     right: 10px; /* Adjust alignment to the right edge */
@@ -40,11 +41,13 @@
     border: none !important;
     background-color: transparent !important; /* Make it blend with the input field */
     color: #6c757d !important;
-    justify-content: center;
-    align-items: center;
+    // justify-content: center;
+    // align-items: center;
     padding: 5px;
     cursor: pointer;
-    z-index: 10;
+    line-height: 1;
+
+    // z-index: 10;
     &:hover {
       color: #0d6efd !important; /* Highlight color on hover */
     }
