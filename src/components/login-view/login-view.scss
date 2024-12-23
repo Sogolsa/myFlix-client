@@ -26,9 +26,9 @@
   }
 
   .input-group {
-    position: relative; /* Ensures the button is positioned relative to this container */
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   .toggle-password-btn {
@@ -37,9 +37,12 @@
     top: 50%; /* Center vertically */
     right: 10px; /* Adjust alignment to the right edge */
     transform: translateY(-50%);
-    border: none;
+    border: none !important;
     background-color: transparent !important; /* Make it blend with the input field */
     color: #6c757d !important;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
     cursor: pointer;
     z-index: 10;
     &:hover {

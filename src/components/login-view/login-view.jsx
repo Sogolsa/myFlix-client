@@ -81,7 +81,7 @@ export const LoginView = ({ onLoggedIn }) => {
               required
             />
           </Form.Group> */}
-        <Form.Group className='mb-3'>
+        <Form.Group>
           <Form.Label>Password:</Form.Label>
           <div className='input-group'>
             <Form.Control

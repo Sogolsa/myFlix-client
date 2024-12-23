@@ -13254,22 +13254,25 @@ textarea.form-control-lg {
 }
 
 .login-view .input-group {
+  justify-content: center;
   align-items: center;
   display: flex;
-  position: relative;
 }
 
 .login-view .toggle-password-btn {
   cursor: pointer;
   z-index: 10;
-  border: none;
+  justify-content: center;
+  align-items: center;
   height: 40px;
+  padding: 5px;
   position: absolute;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
   color: #6c757d !important;
   background-color: #0000 !important;
+  border: none !important;
 }
 
 .login-view .toggle-password-btn:hover {
