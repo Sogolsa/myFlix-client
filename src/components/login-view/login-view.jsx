@@ -53,27 +53,26 @@ export const LoginView = ({ onLoggedIn }) => {
     using value an onChange, this way, component state will become 
     primary place for data to be stored and updated */
     <Row className='justify-content-center align-items-center'>
-      <Col xs={12}>
-        <Form
-          onSubmit={handleSubmit}
-          className='p-4 bg-light rounded shadow-sm login-view'
-        >
-          <Form.Group className='mb-3' controlId='formName'>
-            <h3 className='text-center mb-4'>Login</h3>
-            <Form.Label>Name:</Form.Label>
-            <Form.Control
-              className='bg-light'
-              type='text'
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              /*form validation to enhance user experience
+      <Form
+        onSubmit={handleSubmit}
+        className='p-4 bg-light rounded shadow-sm login-view'
+      >
+        <Form.Group className='mb-3' controlId='formName'>
+          <h3 className='text-center mb-4'>Login</h3>
+          <Form.Label>Name:</Form.Label>
+          <Form.Control
+            className='bg-light'
+            type='text'
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            /*form validation to enhance user experience
           checks users info and tells them if they've inputted error
           or if the fields are empty before request reaches server */
-              required
-              minLength='3'
-            />
-          </Form.Group>
-          {/* <Form.Group className='mb-3'>
+            required
+            minLength='3'
+          />
+        </Form.Group>
+        {/* <Form.Group className='mb-3'>
             <Form.Label>Password:</Form.Label>
             <Form.Control
               type='password'
@@ -82,34 +81,33 @@ export const LoginView = ({ onLoggedIn }) => {
               required
             />
           </Form.Group> */}
-          <Form.Group className='mb-3'>
-            <Form.Label>Password:</Form.Label>
-            <div className='input-group'>
-              <Form.Control
-                type={showPassword ? 'text' : 'password'}
-                placeholder='Enter your password'
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-              <Button
-                variant='outline-secondary'
-                onClick={() => setShowPassword(!showPassword)}
-                className='toggle-password-btn'
-              >
-                {showPassword ? (
-                  <i className='bi bi-eye-slash'></i> /* Hide Icon */
-                ) : (
-                  <i className='bi bi-eye'></i> /* Show Icon */
-                )}
-              </Button>
-            </div>
-          </Form.Group>
-          <Button variant='primary' type='submit'>
-            Submit
-          </Button>
-        </Form>
-      </Col>
+        <Form.Group className='mb-3'>
+          <Form.Label>Password:</Form.Label>
+          <div className='input-group'>
+            <Form.Control
+              type={showPassword ? 'text' : 'password'}
+              placeholder='Enter your password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <Button
+              variant='outline-secondary'
+              onClick={() => setShowPassword(!showPassword)}
+              className='toggle-password-btn'
+            >
+              {showPassword ? (
+                <i className='bi bi-eye-slash'></i> /* Hide Icon */
+              ) : (
+                <i className='bi bi-eye'></i> /* Show Icon */
+              )}
+            </Button>
+          </div>
+        </Form.Group>
+        <Button variant='primary' type='submit'>
+          Submit
+        </Button>
+      </Form>
     </Row>
   );
 };
