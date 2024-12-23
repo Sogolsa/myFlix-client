@@ -13239,8 +13239,9 @@ textarea.form-control-lg {
 }
 
 .login-view .form-control {
-  background-color: #fff;
+  color: #000;
   margin-bottom: 15px;
+  background-color: #fff !important;
 }
 
 .login-view .btn-primary {
@@ -13278,8 +13279,9 @@ textarea.form-control-lg {
 }
 
 .signup-view .form-control {
-  background-color: #fff;
+  color: #000;
   margin-bottom: 15px;
+  background-color: #fff !important;
 }
 
 .signup-view .btn-primary {

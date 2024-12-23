@@ -62,6 +62,7 @@ export const LoginView = ({ onLoggedIn }) => {
             <h3 className='text-center mb-4'>Login</h3>
             <Form.Label>Name:</Form.Label>
             <Form.Control
+              className='bg-light'
               type='text'
               value={name}
               onChange={(e) => setName(e.target.value)}
