@@ -13291,8 +13291,9 @@ textarea.form-control-lg {
 }
 
 .nav-item:hover {
-  background-color: #ddf0f0;
+  background-color: #f49681;
   border-radius: 5px;
+  color: #000 !important;
 }
 
 .nav-brand {
@@ -13307,7 +13308,7 @@ textarea.form-control-lg {
 }
 
 .nav-item {
-  color: #fff;
+  color: #fff !important;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */

@@ -36,7 +36,7 @@ export const SignupView = () => {
     });
   };
   return (
-    <Row className='justify-content-center align-items-center vh-100'>
+    <Row className='justify-content-center align-items-center'>
       <Col xs={12}>
         <Form
           onSubmit={handleSubmit}

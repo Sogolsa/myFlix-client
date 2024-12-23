@@ -15,15 +15,15 @@ export const MovieView = ({ movies }) => {
 
   //w-100 setting image to take up column's full width
   return (
-    <div className='bg-dark text-light p-4'>
-      <div className='mb-3'>
+    <div className='bg-dark text-light'>
+      <div className='row justify-content-center'>
         <img
-          className='w-100'
+          className='w-100 img-fluid'
           src={movie.image}
           alt='Movie Poster'
           style={{
             width: '100%',
-            height: '100vh',
+            height: '70vh',
             objectFit: 'contain',
           }}
         />

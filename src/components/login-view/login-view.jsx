@@ -52,7 +52,7 @@ export const LoginView = ({ onLoggedIn }) => {
     and connecting it with state variable to the HTML form element state
     using value an onChange, this way, component state will become 
     primary place for data to be stored and updated */
-    <Row className='justify-content-center align-items-center vh-100'>
+    <Row className='justify-content-center align-items-center'>
       <Col xs={12}>
         <Form
           onSubmit={handleSubmit}

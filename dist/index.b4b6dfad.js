@@ -41448,17 +41448,17 @@ const MovieView = ({ movies })=>{
     console.log("Movie Image:", movie && movie.image);
     //w-100 setting image to take up column's full width
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "bg-dark text-light p-4",
+        className: "bg-dark text-light",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "mb-3",
+                className: "row justify-content-center",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    className: "w-100",
+                    className: "w-100 img-fluid",
                     src: movie.image,
                     alt: "Movie Poster",
                     style: {
                         width: "100%",
-                        height: "100vh",
+                        height: "70vh",
                         objectFit: "contain"
                     }
                 }, void 0, false, {
@@ -41668,7 +41668,7 @@ const LoginView = ({ onLoggedIn })=>{
     and connecting it with state variable to the HTML form element state
     using value an onChange, this way, component state will become 
     primary place for data to be stored and updated */ /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-        className: "justify-content-center align-items-center vh-100",
+        className: "justify-content-center align-items-center",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
             xs: 12,
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
@@ -41852,7 +41852,7 @@ const SignupView = ()=>{
         });
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-        className: "justify-content-center align-items-center vh-100",
+        className: "justify-content-center align-items-center",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
             xs: 12,
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
