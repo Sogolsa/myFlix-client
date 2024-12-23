@@ -1,5 +1,18 @@
-
 .nav-item:hover {
-      background-color: rgb(221, 240, 240);
-  }
-  
+  background-color: rgb(221, 240, 240);
+  border-radius: 5px;
+}
+.nav-brand {
+  font-weight: 600;
+  // color: rgb(4, 89, 89);
+  color: black;
+  font-size: 30px;
+}
+.nav-color {
+  background-color: #ff5733 !important;
+  // background-color: teal !important;
+  font-weight: 600;
+}
+.nav-item {
+  color: white;
+}

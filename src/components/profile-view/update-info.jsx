@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Row, Col } from 'react-bootstrap';
+import DeleteUser from './delete-user';
 
 function UpdateInfo() {
   const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -52,49 +53,84 @@ function UpdateInfo() {
   };
 
   return (
-    <Form onSubmit={handleUpdate} className='justify-content-md-center'>
-      <h4>Edit User Info: </h4>
-      <Form.Group controlId='formName'>
-        <Form.Label>Name:</Form.Label>
-        <Form.Control
-          type='text'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          minLength='3'
-        />
-      </Form.Group>
-      <Form.Group controlId='formPassword'>
-        <Form.Label>Password:</Form.Label>
-        <Form.Control
-          type='password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </Form.Group>
-      <Form.Group controlId='formEmail'>
-        <Form.Label>Email:</Form.Label>
-        <Form.Control
-          type='email'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </Form.Group>
-      <Form.Group controlId='formBirthday'>
-        <Form.Label>Birthday:</Form.Label>
-        <Form.Control
-          type='date'
-          value={birthday}
-          onChange={(e) => setBirthday(e.target.value)}
-          required
-        />
-      </Form.Group>
-      <Button variant='primary' type='submit' onClick={handleUpdate}>
-        Update User Info
-      </Button>
-    </Form>
+    <Row className='justify-content-center align-items-center'>
+      <Col xs={12} md={10}>
+        <Form
+          onSubmit={handleUpdate}
+          className='p-3 bg-light text-dark rounded shadow-sm'
+        >
+          <h4 className='text-center mb-4'>Edit User Info: </h4>
+          <Form.Group controlId='formName' className='mb-2'>
+            <Form.Label style={{ fontWeight: 'bold' }}>Name:</Form.Label>
+            <Form.Control
+              placeholder='Enter your name'
+              type='text'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              minLength='3'
+              style={{
+                backgroundColor: 'white', // White background
+                color: 'black',
+              }}
+            />
+          </Form.Group>
+          <Form.Group controlId='formPassword' className='mb-2'>
+            <Form.Label style={{ fontWeight: 'bold' }}>Password:</Form.Label>
+            <Form.Control
+              type='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              style={{
+                backgroundColor: 'white',
+                color: 'black',
+              }}
+            />
+          </Form.Group>
+          <Form.Group controlId='formEmail' className='mb-2'>
+            <Form.Label style={{ fontWeight: 'bold' }}>Email:</Form.Label>
+            <Form.Control
+              type='email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              style={{
+                backgroundColor: 'white',
+                color: 'black',
+              }}
+            />
+          </Form.Group>
+          <Form.Group controlId='formBirthday' className='mb-2'>
+            <Form.Label style={{ fontWeight: 'bold' }}>Birthday:</Form.Label>
+            <Form.Control
+              type='date'
+              value={birthday}
+              onChange={(e) => setBirthday(e.target.value)}
+              required
+              style={{
+                backgroundColor: 'white',
+                color: 'black',
+              }}
+            />
+          </Form.Group>
+          <Col>
+            <Button
+              variant='primary'
+              type='submit'
+              onClick={handleUpdate}
+              className='w-100 text-light'
+              style={{ fontWeight: '600' }}
+            >
+              Update User Info
+            </Button>
+          </Col>
+          <Col>
+            <DeleteUser />
+          </Col>
+        </Form>
+      </Col>
+    </Row>
   );
 }
 

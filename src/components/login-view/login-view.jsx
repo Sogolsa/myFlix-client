@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Row, Col } from 'react-bootstrap';
+
+import './login-view.scss';
 
 // Passing the onLoggedIn prop to LoginView and calling the prop when login request succeeds
 export const LoginView = ({ onLoggedIn }) => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
   //when form submitted the open library will verify username and password
   const handleSubmit = (event) => {
     //Preventing the default which is reloading the entire page
@@ -48,32 +52,63 @@ export const LoginView = ({ onLoggedIn }) => {
     and connecting it with state variable to the HTML form element state
     using value an onChange, this way, component state will become 
     primary place for data to be stored and updated */
-    <Form onSubmit={handleSubmit}>
-      <Form.Group controlId='formName'>
-        <Form.Label>Name:</Form.Label>
-        <Form.Control
-          type='text'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          /*form validation to enhance user experience
+    <Row className='justify-content-center align-items-center vh-100'>
+      <Col xs={12}>
+        <Form
+          onSubmit={handleSubmit}
+          className='p-4 bg-light rounded shadow-sm login-view'
+        >
+          <Form.Group className='mb-3' controlId='formName'>
+            <h3 className='text-center mb-4'>Login</h3>
+            <Form.Label>Name:</Form.Label>
+            <Form.Control
+              type='text'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              /*form validation to enhance user experience
           checks users info and tells them if they've inputted error
           or if the fields are empty before request reaches server */
-          required
-          minLength='3'
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Password:</Form.Label>
-        <Form.Control
-          type='password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </Form.Group>
-      <Button variant='primary' type='submit'>
-        Submit
-      </Button>
-    </Form>
+              required
+              minLength='3'
+            />
+          </Form.Group>
+          {/* <Form.Group className='mb-3'>
+            <Form.Label>Password:</Form.Label>
+            <Form.Control
+              type='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </Form.Group> */}
+          <Form.Group className='mb-3'>
+            <Form.Label>Password:</Form.Label>
+            <div className='input-group'>
+              <Form.Control
+                type={showPassword ? 'text' : 'password'}
+                placeholder='Enter your password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <Button
+                variant='outline-secondary'
+                onClick={() => setShowPassword(!showPassword)}
+                className='toggle-password-btn'
+              >
+                {showPassword ? (
+                  <i className='bi bi-eye-slash'></i> /* Hide Icon */
+                ) : (
+                  <i className='bi bi-eye'></i> /* Show Icon */
+                )}
+              </Button>
+            </div>
+          </Form.Group>
+          <Button variant='primary' type='submit'>
+            Submit
+          </Button>
+        </Form>
+      </Col>
+    </Row>
   );
 };

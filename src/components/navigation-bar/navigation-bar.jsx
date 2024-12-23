@@ -5,9 +5,9 @@ import './navigation-bar.scss';
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
   return (
-    <Navbar bg='light' expand='lg' sticky='top'>
+    <Navbar bg='dark' expand='lg' sticky='top' className='nav-color'>
       <Container>
-        <Navbar.Brand as={Link} to='/'>
+        <Navbar.Brand as={Link} to='/' className='nav-brand'>
           myFlix
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />

@@ -107,7 +107,7 @@ export const MainView = () => {
         onSearch={handleSearch}
         setSearchValue={setSearchValue}
       />
-      <Row className='justify-content-md-center'>
+      <Row className='justify-content-md-center xs={12} sm={12} md={3}'>
         <Routes>
           <Route // path prop expresses what URL it should match
             path='/signup'
@@ -193,7 +193,7 @@ export const MainView = () => {
                   <>
                     {searchedMovies.length === 0
                       ? movies.map((movie) => (
-                          <Col className='mb-4' key={movie._id} md={3}>
+                          <Col className='mb-4' key={movie._id} md={4}>
                             <MovieCard
                               movie={movie}
                               user={user}
@@ -203,7 +203,7 @@ export const MainView = () => {
                           </Col>
                         ))
                       : searchedMovies.map((movie) => (
-                          <Col className='mb-4' key={movie._id} md={3}>
+                          <Col className='mb-4' key={movie._id} md={4}>
                             <MovieCard
                               movie={movie}
                               user={user}
@@ -230,7 +230,7 @@ export const MainView = () => {
                 ) : (
                   <>
                     {movies.map((movie) => (
-                      <Col className='mb-4' key={movie._id} md={3}>
+                      <Col className='mb-4' key={movie._id} xs={12} md={3}>
                         <MovieCard
                           movie={movie}
                           user={user}

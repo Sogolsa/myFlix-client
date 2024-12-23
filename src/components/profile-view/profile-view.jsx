@@ -58,26 +58,10 @@ export const ProfileView = ({ user, movie, movies, setUser }) => {
   // Render the UserInfo component with the retrieved user information
   // Render Update info from UpdateInfo component
   return (
-    <Container>
+    <Container className='p-5 bg-dark text-light'>
       <Row className='justify-content-md-center align-items-center'>
         <Col md={5}>
           <UserInfo name={name} email={email} />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <div>
-            <h5>Favorite Movies:</h5>
-            {FavoriteMovies.map((movie) => (
-              <MovieCard
-                key={movie._id}
-                movie={movie}
-                token={storedToken}
-                user={user}
-                setUser={setUser}
-              />
-            ))}
-          </div>
         </Col>
         <Col
           md={5}
@@ -89,7 +73,22 @@ export const ProfileView = ({ user, movie, movies, setUser }) => {
             password={password}
             birthday={birthday}
           />
-          <DeleteUser />
+        </Col>
+      </Row>
+      <Row className='p-5'>
+        <Col>
+          <div>
+            <h5 className='text-center mb-4'>Favorite Movies:</h5>
+            {FavoriteMovies.map((movie) => (
+              <MovieCard
+                key={movie._id}
+                movie={movie}
+                token={storedToken}
+                user={user}
+                setUser={setUser}
+              />
+            ))}
+          </div>
         </Col>
       </Row>
     </Container>

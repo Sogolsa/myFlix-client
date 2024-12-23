@@ -107,18 +107,42 @@ export const MovieCard = ({ movie, token, user, setUser }) => {
   contains non alphanumeric characters. encodeURIComponent replaces those characters
   with URL friendly characters*/
   return (
-    <Card className='h-100'>
-      <Card.Img variant='top' src={movie.image} />
+    <Card className='h-100 bg-dark text-light'>
+      <Card.Img
+        variant='top'
+        src={movie.image}
+        className='img-fluid'
+        style={{
+          width: '100%',
+          height: '380px',
+          objectFit: 'contain',
+        }}
+      />
       <Card.Body>
         <Card.Title>{movie.title}</Card.Title>
         <Card.Text>{movie.description}</Card.Text>
-        <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
-          <Button variant='link'>More Info</Button>
-        </Link>
-        <Row>
-          <Col>
-            <Button variant='link' onClick={handleToggle}>
-              {isFavorite ? 'Remove Favorite Movie' : 'Add Favorite Movie'}
+        <Row className='d-flex justify-content-center'>
+          <Col className='text-center'>
+            <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
+              <Button
+                variant='link'
+                className='text-decoration-none w-100'
+                style={{ fontWeight: 600 }}
+              >
+                More Info
+              </Button>
+            </Link>
+          </Col>
+        </Row>
+        <Row className='d-flex justify-content-center'>
+          <Col className='text-center'>
+            <Button
+              variant='link'
+              onClick={handleToggle}
+              className='text-decoration-none w-100'
+              style={{ fontWeight: 600 }}
+            >
+              {isFavorite ? '❤️ Remove from Favorites' : '🤍 Add to Favorites'}
             </Button>
           </Col>
         </Row>

@@ -14,10 +14,10 @@ function SearchInput({ onSearch }) {
     navigate('/search');
   };
   return (
-    <Row className='justify-content-md-center mb-3'>
+    <Row className='justify-content-md-center align-items-center mb-3'>
       <Col className='col col-sm-4 text-center offset-md-4 mt-3'>
         <input
-          className='form-control'
+          className='form-control bg-light text-dark'
           value={searchValue}
           onChange={(event) => setSearchValue(event.target.value)}
           placeholder='Type to search for genre...'
@@ -25,7 +25,7 @@ function SearchInput({ onSearch }) {
       </Col>
       <Col>
         <Button
-          className='mt-3'
+          className='mt-3 text-light'
           variant='primary'
           type='submit'
           onClick={handleButtonClick}

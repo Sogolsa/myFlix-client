@@ -15,23 +15,32 @@ export const MovieView = ({ movies }) => {
 
   //w-100 setting image to take up column's full width
   return (
-    <div>
-      <div>
-        <img className='w-100' src={movie.image} alt='Movie Poster' />
+    <div className='bg-dark text-light p-4'>
+      <div className='mb-3'>
+        <img
+          className='w-100'
+          src={movie.image}
+          alt='Movie Poster'
+          style={{
+            width: '100%',
+            height: '100vh',
+            objectFit: 'contain',
+          }}
+        />
       </div>
-      <div>
+      <div className='mb-3'>
         <span style={{ fontWeight: 'bold' }}>Title: </span>
         <span>{movie.title}</span>
       </div>
-      <div>
+      <div className='mb-3'>
         <span style={{ fontWeight: 'bold' }}>Director: </span>
         <span>{movie.director.Name}</span>
       </div>
-      <div>
+      <div className='mb-3'>
         <span style={{ fontWeight: 'bold' }}>Description: </span>
         <span>{movie.description}</span>
       </div>
-      <div>
+      <div className='mb-3'>
         <span style={{ fontWeight: 'bold' }}>Genre: </span>
         <span>{movie.genre.Name}</span>
       </div>

@@ -43,7 +43,13 @@ function DeleteUser() {
   };
 
   return (
-    <Button variant='primary' type='submit' onClick={handleDelete}>
+    <Button
+      variant='primary'
+      type='submit'
+      onClick={handleDelete}
+      className='w-100 text-light'
+      style={{ fontWeight: '600' }}
+    >
       Delete User
     </Button>
   );
