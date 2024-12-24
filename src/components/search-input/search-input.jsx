@@ -3,6 +3,8 @@ import { Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
+import './search-input.scss';
+
 // Creating a component for search input and search button
 function SearchInput({ onSearch }) {
   const navigate = useNavigate();
@@ -20,13 +22,13 @@ function SearchInput({ onSearch }) {
           className='form-control bg-light text-dark'
           value={searchValue}
           onChange={(event) => setSearchValue(event.target.value)}
-          placeholder='Type to search for genre...'
+          placeholder='Search for genre...'
         ></input>
       </Col>
       <Col>
         <Button
-          className='mt-3 text-light'
-          variant='primary'
+          className='text-light search-btn'
+          // variant='search-btn'
           type='submit'
           onClick={handleButtonClick}
         >

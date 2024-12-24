@@ -13234,16 +13234,17 @@ textarea.form-control-lg {
   box-shadow: 0 4px 6px #0000001a;
 }
 
-.login-view .form-label {
+.form-label {
   font-weight: bold;
 }
 
-.login-view .form-control {
-  background-color: #fff;
+.form-control {
+  color: #000;
   margin-bottom: 15px;
+  background-color: #fff !important;
 }
 
-.login-view .btn-primary {
+.btn-primary {
   color: #fff;
   width: 100%;
   font-weight: 600;
@@ -13293,6 +13294,20 @@ textarea.form-control-lg {
 
 .nav-item {
   color: #fff !important;
+}
+
+.search-btn {
+  color: #f5f5f5;
+  background-color: #ff5733;
+  border: none;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+  margin-top: 0;
+  font-weight: 600;
+  display: flex;
 }
 
 /*!
