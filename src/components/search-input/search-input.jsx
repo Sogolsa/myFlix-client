@@ -15,6 +15,15 @@ function SearchInput({ onSearch }) {
     onSearch(searchValue);
     navigate('/search');
   };
+
+  // Handle Enter key press
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Prevent default form submission
+      handleButtonClick(); // Trigger the search
+    }
+  };
+
   return (
     <Row className='justify-content-md-center mb-5'>
       <Col className='col col-sm-4 text-center offset-md-4 mt-3'>
@@ -22,7 +31,8 @@ function SearchInput({ onSearch }) {
           className='form-control bg-light text-dark'
           value={searchValue}
           onChange={(event) => setSearchValue(event.target.value)}
-          placeholder='Search for genre...'
+          onKeyDown={handleKeyDown}
+          placeholder='Search...'
         ></input>
       </Col>
       <Col>

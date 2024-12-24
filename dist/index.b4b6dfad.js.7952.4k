@@ -27603,12 +27603,14 @@ const MainView = ()=>{
                                     lineNumber: 228,
                                     columnNumber: 19
                                 }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                                    children: searchedMovies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                                        className: "text-center",
+                                    children: searchedMovies.length === 0 && searchValue.trim() ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            className: "search-message",
-                                            children: "No results found."
-                                        }, void 0, false, {
+                                            children: [
+                                                'No results found for "',
+                                                searchValue,
+                                                '".'
+                                            ]
+                                        }, void 0, true, {
                                             fileName: "src/components/main-view/main-view.jsx",
                                             lineNumber: 233,
                                             columnNumber: 25

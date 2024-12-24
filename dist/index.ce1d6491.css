@@ -1,5 +1,5 @@
 .my-flix {
-  color: #4682b4;
+  color: #fff;
 }
 
 .second-row {
@@ -13293,6 +13293,12 @@ textarea.form-control-lg {
 }
 
 .nav-item {
+  color: #fff !important;
+}
+
+.search-message {
+  font-size: 20px;
+  font-weight: 600;
   color: #fff !important;
 }
 

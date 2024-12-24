@@ -27589,6 +27589,7 @@ const MainView = ()=>{
                             path: "/search",
                             element: /*If the user is not logged in, it redirects to the login page.
              If the user is logged in and there are movies, it displays movie cards in columns.*/ /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                                className: "message",
                                 children: !user ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
                                     to: "/login",
                                     replace: true
@@ -27603,17 +27604,14 @@ const MainView = ()=>{
                                     lineNumber: 228,
                                     columnNumber: 19
                                 }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                                    children: searchedMovies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                                        className: "text-center",
-                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            className: "search-message",
-                                            children: "No results found."
-                                        }, void 0, false, {
-                                            fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 233,
-                                            columnNumber: 25
-                                        }, void 0)
-                                    }, void 0, false, {
+                                    children: searchedMovies.length === 0 && searchValue.trim() ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                        className: "search-message",
+                                        children: [
+                                            'No results found for "',
+                                            searchValue,
+                                            '".'
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "src/components/main-view/main-view.jsx",
                                         lineNumber: 232,
                                         columnNumber: 23

@@ -8,6 +8,7 @@ import { NavigationBar } from '../navigation-bar/navigation-bar';
 import { Row, Col, Button } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import SearchInput from '../search-input/search-input';
+import './main-view.scss';
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -68,18 +69,54 @@ export const MainView = () => {
   const [searchedMovies, setSearchedMovies] = useState([]);
   const [searchValue, setSearchValue] = useState('');
 
+  // const handleSearch = (searchValue) => {
+  //   const filteredMovies = movies.filter((movie) => {
+  //     return (
+  //       movie.genre &&
+  //       movie.genre.Name &&
+  //       movie.genre.Name.toLowerCase().includes(searchValue.toLowerCase())
+  //     );
+  //   });
+  //   console.log('movie:', movies, 'searchValue:', searchValue);
+  //   setSearchedMovies(filteredMovies);
+  //   console.log('searched movies', filteredMovies);
+  // };
   const handleSearch = (searchValue) => {
+    // Check if searchValue is empty
+    if (!searchValue) {
+      console.log('Search value is empty. Displaying all movies.');
+      setSearchedMovies(movies); // Show all movies if search is empty
+      return;
+    }
+
+    // Filter movies based on genre
     const filteredMovies = movies.filter((movie) => {
       return (
-        // movie &&
-        movie.genre &&
-        movie.genre.Name &&
-        movie.genre.Name.toLowerCase().includes(searchValue.toLowerCase())
+        (movie?.genre?.Name &&
+          movie.genre.Name.toLowerCase()
+            .trim()
+            .includes(searchValue.toLowerCase().trim())) ||
+        (movie?.title &&
+          movie.title
+            .toLowerCase()
+            .trim()
+            .includes(searchValue.toLowerCase().trim())) ||
+        (movie?.director?.Name &&
+          movie.director.Name.toLowerCase()
+            .trim()
+            .includes(searchValue.toLowerCase().trim()))
       );
     });
-    console.log('movie:', movies, 'searchValue:', searchValue);
-    setSearchedMovies(filteredMovies);
-    console.log('searched movies', filteredMovies);
+    console.log('Filtered movies:', filteredMovies);
+
+    // Handle no results
+    if (filteredMovies.length === 0) {
+      console.log('No movies found for the given genre:', searchValue);
+      setSearchedMovies([]); // Set an empty list if no movies match
+    } else {
+      setSearchedMovies(filteredMovies); // Set filtered list if matches are found
+      console.log('Searched movies:', filteredMovies);
+    }
   };
 
   /* LoginView component is displayed in MainView when no user is logged in,
@@ -191,27 +228,22 @@ export const MainView = () => {
                   <Col>The list is empty</Col>
                 ) : (
                   <>
-                    {searchedMovies.length === 0
-                      ? movies.map((movie) => (
-                          <Col className='mb-4' key={movie._id} md={4}>
-                            <MovieCard
-                              movie={movie}
-                              user={user}
-                              token={token}
-                              setUser={setUser}
-                            />
-                          </Col>
-                        ))
-                      : searchedMovies.map((movie) => (
-                          <Col className='mb-4' key={movie._id} md={4}>
-                            <MovieCard
-                              movie={movie}
-                              user={user}
-                              token={token}
-                              setUser={setUser}
-                            />
-                          </Col>
-                        ))}
+                    {searchedMovies.length === 0 ? (
+                      <Col className='text-center'>
+                        <p className='search-message'>No results found.</p>
+                      </Col>
+                    ) : (
+                      searchedMovies.map((movie) => (
+                        <Col className='mb-4' key={movie._id} md={4}>
+                          <MovieCard
+                            movie={movie}
+                            user={user}
+                            token={token}
+                            setUser={setUser}
+                          />
+                        </Col>
+                      ))
+                    )}
                   </>
                 )}
               </Row>
