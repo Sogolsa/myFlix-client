@@ -42684,8 +42684,8 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
-var _searchInputScss = require("./search-input.scss");
 var _s = $RefreshSig$();
+// import './search-input.scss';
 // Creating a component for search input and search button
 function SearchInput({ onSearch }) {
     _s();
@@ -42696,7 +42696,7 @@ function SearchInput({ onSearch }) {
         navigate("/search");
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-        className: "justify-content-md-center align-items-center mb-3",
+        className: "justify-content-md-center mb-3",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                 className: "col col-sm-4 text-center offset-md-4 mt-3",
@@ -42717,8 +42717,8 @@ function SearchInput({ onSearch }) {
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                    className: "text-light search-btn",
-                    // variant='search-btn'
+                    className: "text-light mt-3",
+                    variant: "primary",
                     type: "submit",
                     onClick: handleButtonClick,
                     children: "Search"
@@ -42754,6 +42754,6 @@ $RefreshReg$(_c, "SearchInput");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./search-input.scss":"4VKQs"}],"4VKQs":[function() {},{}],"87yWV":[function() {},{}]},["5qIsR","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"87yWV":[function() {},{}]},["5qIsR","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map

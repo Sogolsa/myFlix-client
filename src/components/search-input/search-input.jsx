@@ -3,7 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
-import './search-input.scss';
+// import './search-input.scss';
 
 // Creating a component for search input and search button
 function SearchInput({ onSearch }) {
@@ -16,7 +16,7 @@ function SearchInput({ onSearch }) {
     navigate('/search');
   };
   return (
-    <Row className='justify-content-md-center align-items-center mb-3'>
+    <Row className='justify-content-md-center mb-3'>
       <Col className='col col-sm-4 text-center offset-md-4 mt-3'>
         <input
           className='form-control bg-light text-dark'
@@ -27,8 +27,8 @@ function SearchInput({ onSearch }) {
       </Col>
       <Col>
         <Button
-          className='text-light search-btn'
-          // variant='search-btn'
+          className='text-light mt-3'
+          variant='primary'
           type='submit'
           onClick={handleButtonClick}
         >
