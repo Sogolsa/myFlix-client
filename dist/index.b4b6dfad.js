@@ -42696,7 +42696,7 @@ function SearchInput({ onSearch }) {
         navigate("/search");
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-        className: "justify-content-md-center mb-3",
+        className: "justify-content-md-center mb-5",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                 className: "col col-sm-4 text-center offset-md-4 mt-3",
